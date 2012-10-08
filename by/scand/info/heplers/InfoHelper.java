@@ -44,6 +44,12 @@ public class InfoHelper {
             list = helper.getFirmsWebSites(urlList);
             allWebSites.add(list);
         }
+
+        for(List<String> ls : allWebSites){
+            for(String s : ls){
+                System.out.println(s);
+            }
+        }
     }
 
     private List<Firm> getFirms(Node[] nodes) {
@@ -73,7 +79,6 @@ public class InfoHelper {
             helper = new FirmInfoHelper(url);
             if (!"".equals(str = helper.getFirmWebSite()))
                 webSites.add(str);
-            System.out.println(str);
         }
         return webSites;
     }
