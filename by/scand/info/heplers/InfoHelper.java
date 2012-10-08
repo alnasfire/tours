@@ -45,11 +45,11 @@ public class InfoHelper {
             allWebSites.add(list);
         }
 
-        for(List<String> ls : allWebSites){
-            for(String s : ls){
-                System.out.println(s);
-            }
-        }
+//        for(List<String> ls : allWebSites){
+//            for(String s : ls){
+//                System.out.println(s);
+//            }
+//        }
     }
 
     private List<Firm> getFirms(Node[] nodes) {
@@ -77,8 +77,10 @@ public class InfoHelper {
         String str;
         for (String url : urls) {
             helper = new FirmInfoHelper(url);
-            if (!"".equals(str = helper.getFirmWebSite()))
+            if (!"".equals(str = helper.getFirmWebSite())){
                 webSites.add(str);
+                System.out.println(str);
+            }
         }
         return webSites;
     }

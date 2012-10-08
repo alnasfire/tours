@@ -10,15 +10,15 @@ import org.htmlparser.util.ParserException;
  */
 public class TuriParser extends AbstractParser{
     private static final String URL = "http://turi.by/hot/";
-    public static void main(String[] args){
+    public static void main(String[] args){          //TODO nasgor make correct method
         try {
             Node[] nodes = getNodes(URL);
             for (Node node : nodes){
                 if (node.getText().contains("a class='link' href='/contacts/'")){
                     for (Node n : node.getChildren().toNodeArray()){
-                        if (n.getFirstChild() != null)
+                        if (n.getFirstChild() != null)                           //cost and hotel
                             System.out.println(n.getFirstChild().getText());
-                        if (n.getLastChild() != null)
+                        if (n.getLastChild() != null)                            //cost and resort
                             System.out.println(n.getLastChild().getText());
                     }
                 }

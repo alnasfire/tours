@@ -9,7 +9,7 @@ import org.htmlparser.util.ParserException;
  * Date: 10/8/12
  * Time: 4:26 PM
  */
-public class FourSideParser {
+public class FourSideParser extends AbstractParser{
     private static final String URL = "http://www.4cc.by/goryaschie-turi.html";
     public static void main(String[] args){
         try {

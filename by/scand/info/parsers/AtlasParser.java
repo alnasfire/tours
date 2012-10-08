@@ -8,7 +8,7 @@ import org.htmlparser.util.ParserException;
  * Date: 10/8/12
  * Time: 3:51 PM
  */
-public class AtlasParser {
+public class AtlasParser extends AbstractParser{
     private static final String URL = "http://www.atlasmira.by/hottour.php";
     public static void main(String[] args){
         StringBuilder stringBuilder = new StringBuilder();
