@@ -7,12 +7,12 @@ package by.scand.info.model;
  */
 public class Tour {
     private String name;
-    private String country;
-    private String resort;
+    private String country;  //
+    private String resort;  //
     private String hotel;
-    private String date;
-    private String days;
-    private String cost;
+    private String date;   //
+    private String days;    //
+    private String cost;    //
     private String link;
 
     public Tour() {

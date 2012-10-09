@@ -26,8 +26,8 @@ public class InfoHelper {
 
     public static void main(String[] args) throws ParserException {
         String url = "http://www.holiday.by/agencies";
-        List<String> urls = null;
-        List<String> list = null;
+        List<String> urls;
+        List<String> list;
         InfoHelper helper = null;
         List<List<String>> allUrls = new ArrayList<List<String>>();
         List<List<String>> allWebSites = new ArrayList<List<String>>();
@@ -63,9 +63,6 @@ public class InfoHelper {
             phones = getFirmPhones(node);
             if (name != null && address != null && phones != null) {
                 firms.add(new Firm(name, address, phones));
-                name = null;
-                phones = null;
-                address = null;
             }
         }
         return firms;
