@@ -19,8 +19,13 @@ public class HolidayParser extends AbstractParser{
         NodeList listMain = new NodeList ();
         NodeList listtd = new NodeList ();
         NodeFilter filter = new TagNameFilter("TR");
+        for (int i = 1; i < 4; i++) {
+            Node[] nodes;
+            if (i == 1)
+                nodes = getNodes(URL);
+            else
+                nodes = getNodes(URL + "?p="+i);
 
-        Node[] nodes = getNodes(URL);
         for (Node node : nodes){
             if (node.getText().contains("item item-expanded")){
                 listMain.add(node);
@@ -51,7 +56,7 @@ public class HolidayParser extends AbstractParser{
                 } else if (n.getText().contains("class=\"price\"")){
                     for (Node ns : n.getChildren().toNodeArray()){
                         if (ns.getChildren() != null && ns.getChildren().elementAt(0).getLastChild() != null) {
-                            System.out.print("price"+ns.getChildren().elementAt(0).getChildren().elementAt(1).getText());//price
+                                System.out.print("price = " + ns.getChildren().elementAt(0).getChildren().elementAt(1).getText());//price
                             System.out.println(ns.getChildren().elementAt(0).getLastChild().getText()); //curency
                         }
                     }
@@ -67,9 +72,10 @@ public class HolidayParser extends AbstractParser{
                     for (Node ns : n.getChildren().toNodeArray()){
                         if (ns.getChildren() != null)
                             System.out.println("firm name = "+ns.getChildren().elementAt(1).getLastChild().getLastChild().getText()); // firm name
-                        if (ns.getChildren() != null && ns.getChildren().elementAt(3).getText().contains("class=\"list phones\"")){
-                            for (Node nst : ns.getChildren().elementAt(3).getChildren().elementAt(1).getChildren().toNodeArray()){  //phones
-                                System.out.println(nst.getLastChild().getText());
+                            if (ns.getChildren() != null && ns.getChildren().elementAt(3).getText().contains("class=\"list phones\"")) {//
+                                for (Node nst : ns.getChildren().elementAt(3).getChildren().toNodeArray()) {  //phones
+                                    if (nst.getLastChild() != null)
+                                        System.out.println(nst.getLastChild().getChildren().elementAt(0).getText());
                             }
                         }
                     }
@@ -78,4 +84,5 @@ public class HolidayParser extends AbstractParser{
             }
         }
     }
+}
 }
