@@ -36,49 +36,46 @@ public class HolidayParser extends AbstractParser{
         }
 
         for (Node node : listtd.toNodeArray()){
-//            System.out.println(node.getChildren().elementAt(0).getLastChild().getText());
             for (Node n : node.getChildren().toNodeArray()){
                 if (n.getText().contains("class=\"place\"")){
-//                    for (Node ns : n.getChildren().toNodeArray()){
-//                        if (ns.getText().contains("country") && ns.getChildren() != null)
-//                            System.out.println(ns.getChildren().elementAt(1).getLastChild().getLastChild().getText());//country
-//                        if (ns.getText().contains("resort") && ns.getChildren() != null)
-//                            System.out.println(ns.getChildren().elementAt(1).getLastChild().getText());//resort
-//                        if (ns.getText().contains("hotel") && ns.getChildren() != null && ns.getChildren().elementAt(0).getLastChild() != null)
-//                            System.out.println(ns.getChildren().elementAt(0).getLastChild().getText());//hotel
-//                        if (ns.getText().contains("departure"))
-//                            System.out.println(ns.getLastChild().getText());//departure
-//                    }
+                    for (Node ns : n.getChildren().toNodeArray()){
+                        if (ns.getText().contains("country") && ns.getChildren() != null)
+                            System.out.println("country = "+ns.getChildren().elementAt(1).getLastChild().getLastChild().getText());//country
+                        if (ns.getText().contains("resort") && ns.getChildren() != null)
+                            System.out.println("resort ="+ns.getChildren().elementAt(1).getLastChild().getText());//resort
+                        if (ns.getText().contains("hotel") && ns.getChildren() != null && ns.getChildren().elementAt(0).getLastChild() != null)
+                            System.out.println("hotel = " + ns.getChildren().elementAt(0).getLastChild().getText());//hotel
+                        if (ns.getText().contains("departure"))
+                            System.out.println("вылет "+ns.getLastChild().getText());//departure
+                    }
                 } else if (n.getText().contains("class=\"price\"")){
-//                    for (Node ns : n.getChildren().toNodeArray()){
-//                        if (ns.getChildren() != null && ns.getChildren().elementAt(0).getLastChild() != null) {
-//                            System.out.println(ns.getChildren().elementAt(0).getChildren().elementAt(1).getText());//price
-//                            System.out.println(ns.getChildren().elementAt(0).getLastChild().getText()); //curency
-//                        }
-//                    }
+                    for (Node ns : n.getChildren().toNodeArray()){
+                        if (ns.getChildren() != null && ns.getChildren().elementAt(0).getLastChild() != null) {
+                            System.out.print("price"+ns.getChildren().elementAt(0).getChildren().elementAt(1).getText());//price
+                            System.out.println(ns.getChildren().elementAt(0).getLastChild().getText()); //curency
+                        }
+                    }
                 } else if (n.getText().contains("class=\"date sorted\"")){
-//                    for (Node ns : n.getChildren().toNodeArray()){
-//                        if (ns.getChildren() != null && ns.getChildren().elementAt(1) != null && !"br/".equals(ns.getChildren().elementAt(1).getText())){
-//                            System.out.println(ns.getChildren().elementAt(1).getText());   //date
-//                        } else if (ns.getText().contains("note") && ns.getChildren() != null && ns.getChildren().elementAt(0) != null) {
-//                            System.out.println(ns.getChildren().elementAt(0).getText().trim().substring(0, 15).trim());   //days
-//                        }
-//                    }
+                    for (Node ns : n.getChildren().toNodeArray()){
+                        if (ns.getChildren() != null && ns.getChildren().elementAt(1) != null && !"br/".equals(ns.getChildren().elementAt(1).getText())){
+                            System.out.println("date = "+ns.getChildren().elementAt(1).getText());   //date
+                        } else if (ns.getText().contains("note") && ns.getChildren() != null && ns.getChildren().elementAt(0) != null) {
+                            System.out.println("days = "+ns.getChildren().elementAt(0).getText().trim().substring(0, 15).trim());   //days
+                        }
+                    }
                 } else if(n.getText().contains("class=\"partner\"")){
                     for (Node ns : n.getChildren().toNodeArray()){
-//                        if (ns.getChildren() != null)
-//                            System.out.println(ns.getChildren().elementAt(1).getLastChild().getLastChild().getText()); // firm name
-//                        if (ns.getText().contains("class=\"list phones\"")){
-                        if (ns.getChildren() != null && ns.getChildren().elementAt(2).getChildren() != null){
-                            for (Node nst : ns.getChildren().elementAt(2).getChildren().toNodeArray()){
+                        if (ns.getChildren() != null)
+                            System.out.println("firm name = "+ns.getChildren().elementAt(1).getLastChild().getLastChild().getText()); // firm name
+                        if (ns.getChildren() != null && ns.getChildren().elementAt(3).getText().contains("class=\"list phones\"")){
+                            for (Node nst : ns.getChildren().elementAt(3).getChildren().elementAt(1).getChildren().toNodeArray()){  //phones
                                 System.out.println(nst.getLastChild().getText());
                             }
                         }
-//                        }
                     }
+                    System.out.println("==========================");
                 }
             }
-//            System.out.println("==========================");
         }
     }
 }

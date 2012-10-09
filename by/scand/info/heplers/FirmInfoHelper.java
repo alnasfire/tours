@@ -33,23 +33,9 @@ public class FirmInfoHelper {
         return "";
     }
 
-    private String getFirmWebSiteTest() throws ParserException {
-        int i = 0;
-        for(Node node : this.nodes){
-            if (node.getText().indexOf(url.split("/")[4]) != -1){
-                i ++;
-//                if (i == 8 && node.getText().length() < 30)
-//                    return node.getText();
-                if (i == 7)
-                    System.out.println(node.getText());
-            }
-        }
-        return "";
-    }
-
     public static void main(String[] args) throws ParserException {
         String url = "http://www.holiday.by/agencies/parallel";
         FirmInfoHelper helper = new FirmInfoHelper(url);
-        System.out.println(helper.getFirmWebSiteTest());
+        System.out.println(helper.getFirmWebSite());
     }
 }
