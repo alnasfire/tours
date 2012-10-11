@@ -14,7 +14,7 @@ import org.htmlparser.util.ParserException;
 public abstract class AbstractParser {
     public static Node[] getNodes(String url) throws ParserException {
         Parser parser = new Parser(url);
-        return parser.parse(null).toNodeArray();
+        return parser.parse(new AndFilter()).toNodeArray();
     }
 
     public static Parser getParser(String url) throws ParserException {
