@@ -1,0 +1,4 @@
+utf8=%E2%9C%93&authenticity_token=pPEe8%2FpKQFQn0SzRPnC%2FqWmTmquSr68KSHQSXsbV0WM%3D&tour%5Bcountry%5D=CCCCCCCCCCCCCC&tour%5Bcity%
+5D=CICICICICICIC&tour%5Bhotel%5D=HHHHHHHHH&tour%5Bstart_date%281i%29%5D=2012&tour%5Bstart_date%282i%29%5D=11&tour%5Bstart_date%283i%29%
+5D=2&tour%5Bduration%5D=DDDDDDDDD&tour%5Bdeparture_country%5D=DEDEDEDEDED&tour%5Bprice%5D=PPPPPPPPPPP&tour%5Bfirm_name%
+5D=FFFFFFFFFF&tour%5Bphones%5D=PHPHPHPHPHPH&commit=Create+Tour
