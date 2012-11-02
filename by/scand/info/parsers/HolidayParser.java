@@ -27,7 +27,7 @@ public class HolidayParser extends AbstractParser{
                 nodes = getNodes(URL + "?p="+i);
 
         for (Node node : nodes){
-            if (node.getText().contains("item item-expanded")){
+                if (node.getText().contains("item item-collapsed")) {
                 listMain.add(node);
             }
         }
