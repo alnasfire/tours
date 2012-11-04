@@ -8,10 +8,9 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 
-import javax.print.DocFlavor;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,18 +22,16 @@ import java.util.List;
 public class Request {
     private static final String REQUEST_URL = "http://hottravel-sbsoft.rhcloud.com/tours";
 //    private static String country = "Египет";
-    private static String country = "Egypt";
 //    private static String resort = "Хургада";
-    private static String resort = "Hurgada";
 //    private static String departure = "Киев";
-private static String departure = "Kiev";
-    private static String price = "380 USD";
-    private static String date = "7 ноября 2012";
-    private static String duration = "7";
+//    private static String price = "380 USD";
+//    private static String date = "7 ноября 2012";
+//    private static String duration = "7";
 //    private static String firm_name = "Коллекция путешествий";
-    private static String phones = "+375 (17) 334-88-48, +375 (29) 388-45-44, +375 (44) 589-33-01,+375 (33) 364-88-48";
+//    private static String phones = "+375 (17) 334-88-48, +375 (29) 388-45-44, +375 (44) 589-33-01,+375 (33) 364-88-48";
 
-    public static void main(String[] args) throws IOException {
+    public Request(String country, String resort, String departure, String price, String duration,
+                   String firm_name, String phones, String hotel) throws IOException {
         HttpClient httpclient = new DefaultHttpClient();
         HttpPost httppost = new HttpPost(REQUEST_URL);
 
@@ -46,11 +43,15 @@ private static String departure = "Kiev";
             nameValuePairs.add(new BasicNameValuePair("tour[city]", resort));
             nameValuePairs.add(new BasicNameValuePair("tour[departure_country]", departure));
             nameValuePairs.add(new BasicNameValuePair("tour[duration]", duration));
-//            nameValuePairs.add(new BasicNameValuePair("tour[firm_name]", firm_name));
-            nameValuePairs.add(new BasicNameValuePair("tour[hotel]", ""));
+            nameValuePairs.add(new BasicNameValuePair("tour[firm_name]", firm_name));
+            nameValuePairs.add(new BasicNameValuePair("tour[hotel]", hotel));
             nameValuePairs.add(new BasicNameValuePair("tour[phones]", phones));
             nameValuePairs.add(new BasicNameValuePair("tour[price]", price));
-            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+            UrlEncodedFormEntity form;
+            form = new UrlEncodedFormEntity(nameValuePairs, "UTF-8");
+            form.setContentEncoding(HTTP.UTF_8);
+            httppost.setEntity(form);
 
             HttpResponse response = httpclient.execute(httppost);
 
