@@ -62,7 +62,7 @@ public class InfoHelper {
             address = getFirmAddress(node);
             phones = getFirmPhones(node);
             if (name != null && address != null && phones != null) {
-                firms.add(new Firm(name, address, phones));
+                firms.add(new Firm(name, phones));
             }
         }
         return firms;

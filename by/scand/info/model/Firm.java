@@ -6,25 +6,19 @@ package by.scand.info.model;
  * Time: 11:57 AM
  */
 public class Firm {
-    private String name;
-    private String adress;
-    private String phones;
+    private String name = "";
+    private String phones = "";
 
     public Firm() {
     }
 
-    public Firm(String name, String adress, String phones) {
+    public Firm(String name, String phones) {
         this.name = name;
-        this.adress = adress;
         this.phones = phones;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
     }
 
     public void setPhones(String phones) {
@@ -35,10 +29,6 @@ public class Firm {
         return name;
     }
 
-    public String getAdress() {
-        return adress;
-    }
-
     public String getPhones() {
         return phones;
     }
@@ -47,7 +37,6 @@ public class Firm {
     public String toString() {
         return "Firm{" +
                 "name='" + name + '\'' +
-                ", adress='" + adress + '\'' +
                 ", phones='" + phones + '\'' +
                 '}';
     }
@@ -59,7 +48,6 @@ public class Firm {
 
         Firm firm = (Firm) o;
 
-        if (adress != null ? !adress.equals(firm.adress) : firm.adress != null) return false;
         if (name != null ? !name.equals(firm.name) : firm.name != null) return false;
         if (phones != null ? !phones.equals(firm.phones) : firm.phones != null) return false;
 
@@ -69,7 +57,6 @@ public class Firm {
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (adress != null ? adress.hashCode() : 0);
         result = 31 * result + (phones != null ? phones.hashCode() : 0);
         return result;
     }
